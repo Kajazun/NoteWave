@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+.login-container, .signup-container, .note-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.note-display {
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 5px;
+    min-height: 200px;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.btn-microphone {
+    display: block;
+    margin: 0 auto 20px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    font-size: 2rem;
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn-microphone:active {
+    background-color: #0056b3;
+}
+
+.btn-save {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 30px;
+    font-size: 1.1rem;
+}

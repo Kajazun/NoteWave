@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice-Powered Notebook</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #000; /* Black background */
+            color: #fff; /* White text */
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .navbar-brand, .nav-link {
+            color: #fff !important; /* White text */
+        }
+        .nav-link:hover {
+            color: #ffc107 !important; /* Gold on hover */
+        }
+        .hero-section {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url('https://via.placeholder.com/1920x1080'); /* Optional: Add a background image */
+            padding: 150px 0;
+            text-align: center;
+        }
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #ffc107; /* Gold text */
+        }
+        .hero-section p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.8); /* Light gray text */
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero-section .btn-primary {
+            background: #ffc107; /* Gold background */
+            border: none;
+            font-size: 1.1rem;
+            padding: 12px 30px;
+            color: #000; /* Black text */
+            transition: background-color 0.3s ease;
+        }
+        .hero-section .btn-primary:hover {
+            background: #e0a800; /* Darker gold on hover */
+        }
+        footer {
+            background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+            padding: 40px 0;
+            margin-top: 60px;
+            color: rgba(255, 255, 255, 0.8); /* Light gray text */
+        }
+        .social-icons a {
+            color: #fff; /* White icons */
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        .social-icons a:hover {
+            color: #ffc107; /* Gold on hover */
+        }
+        .footer-links a {
+            color: #fff; /* White text */
+            margin: 0 10px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-links a:hover {
+            color: #ffc107; /* Gold on hover */
+        }
+        .contact-info p {
+            margin: 0;
+        }
+        .copyright {
+            margin-top: 20px;
+            color: rgba(255, 255, 255, 0.6); /* Light gray text */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{{ url_for('login_suc') }}">NoteWave</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('login_suc') }}">Home</a>
+                </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('voice') }}">View Notes</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('signin') }}">Sign out</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <h1>Voice-Powered Notebook</h1>
+        <p>
+            Say goodbye to typing! NoteWave is your personal assistant that listens to your voice, understands what you say, and writes it down for you.
+            Whether it's notes, reminders, or ideas, just speak, and we'll handle the rest.
+            It's like having a notebook that writes itself!
+        </p>
+        <a href="{{ url_for('voice') }}" class="btn btn-primary">Get Started</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="social-icons mb-3">
+            <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <div class="footer-links mb-3">
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="#">About Us</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="contact-info mb-3">
+            <p>Email: info@voicenotebook.com | Phone: +123 456 7890</p>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 NoteWave. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>
