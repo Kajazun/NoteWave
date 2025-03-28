@@ -8,7 +8,7 @@ from werkzeug.security import check_password_hash,generate_password_hash
 
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key_here'  # Flash-ի համար անհրաժեշտ է գաղտնաբառ
+app.secret_key = 'your_secret_key_here'
 
 
 DATABASE = 'notes.db'
@@ -16,15 +16,14 @@ DATABASE = 'notes.db'
 # Function to get a database connection
 def get_db_connection():
     conn = sqlite3.connect(DATABASE)
-    conn.row_factory = sqlite3.Row  # Return rows as dictionaries
+    conn.row_factory = sqlite3.Row
     return conn
 
-# Initialize the database
 def init_db():
     with app.app_context():
         conn = get_db_connection()
         try:
-            # Ստեղծել users աղյուսակը
+
             conn.execute('''
                 CREATE TABLE IF NOT EXISTS users (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -33,7 +32,7 @@ def init_db():
                 );
             ''')
 
-            # Ստեղծել notes աղյուսակը
+
             conn.execute('''
                 CREATE TABLE IF NOT EXISTS notes (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -43,19 +42,17 @@ def init_db():
                     FOREIGN KEY (user_id) REFERENCES users(id)
                 );
             ''')
-            conn.commit()  # Պահպանել փոփոխությունները
+            conn.commit()
             print("Տվյալների բազան հաջողությամբ ստեղծված է:")
             print("- users աղյուսակ")
             print("- notes աղյուսակ")
         except sqlite3.Error as e:
             print("Սխալ տվյալների բազան ստեղծելիս:", e)
         finally:
-            conn.close()  # Փակել կապը
+            conn.close()
 
-# Initialize the database when the app starts
 init_db()
 
-# Temporary storage for notes (in a real app, use a database)
 notes = []
 
 sign_in = []
@@ -154,7 +151,6 @@ def voice():
                                (user_id, note_content))
                 conn.commit()
 
-    # Բեռնում և ֆորմատավորում ենք նոթերը
     with sqlite3.connect('notes.db') as conn:
         cursor = conn.cursor()
         cursor.execute('SELECT id, content, created_at FROM notes WHERE user_id = ? ORDER BY created_at DESC',
